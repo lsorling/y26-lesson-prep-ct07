@@ -236,7 +236,7 @@ function drawMessage(title, subtitle) {
   push();
   rectMode(CENTER);
   noStroke();
-  fill(255,0,0, 240);
+  fill(255,0,0, 200);
   rect(width / 2, messageY, width - 80, 104, 10);
   textAlign(CENTER, CENTER);
   fill('#ffe8a8');
