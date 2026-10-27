@@ -194,7 +194,7 @@ function checkGameEnd() {
 function drawExit() {
   const exitX = tileCenter(EXIT_TILE.column);
   const exitY = tileCenter(EXIT_TILE.row);
-  //push();
+  push();
   rectMode(CENTER);
   stroke('#b9f4b4');
   strokeWeight(2);
@@ -203,7 +203,7 @@ function drawExit() {
   noStroke();
   fill('#f1d88b');
   circle(exitX + 7, exitY, 3);
-  //pop();
+  pop();
 }
 
 function drawHud() {
