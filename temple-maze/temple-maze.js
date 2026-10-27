@@ -50,7 +50,7 @@ function createLevel() {
   if (gems) gems.deleteAll();
   if (walls) walls.deleteAll();
   if (player) player.delete();
-  if (guard) guard.delete();
+  if (guard) guard.remove();
 
   const wallTemplate = new Group();
   wallTemplate.w = TILE_SIZE;
