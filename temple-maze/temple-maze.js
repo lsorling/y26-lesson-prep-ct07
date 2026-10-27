@@ -170,7 +170,7 @@ function moveGuard() {
 function collectGems() {
   for (const gem of gems) {
     if (player.overlaps(gem)) {
-      gem.delete();
+      gem.remove();
       collectedCount += 1;
       notice = `Gem collected: ${collectedCount}/${GEM_TILES.length}`;
     }
