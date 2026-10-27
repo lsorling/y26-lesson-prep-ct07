@@ -42,7 +42,7 @@ function setup() {
   new Canvas(MAZE_LAYOUT[0].length * TILE_SIZE, MAZE_LAYOUT.length * TILE_SIZE + HUD_HEIGHT);
   world.gravity.y = 0;
   textFont('monospace');
-  registerMethod('post', drawGameMessage);
+  //registerMethod('post', drawGameMessage);
   createLevel();
 }
 
