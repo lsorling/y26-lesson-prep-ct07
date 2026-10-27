@@ -49,6 +49,12 @@ function createPlayfield() {
     part.strokeWeight = 3;
     part.restitution = 0.45;
   }
+  setPlayfieldVisible(gamePhase === 'playing');
+}
+
+function setPlayfieldVisible(visible) {
+  paddle.visible = visible;
+  for (const part of basketParts) part.visible = visible;
 }
 
 function update() {
@@ -198,8 +204,10 @@ function checkBallProgress() {
     removeActiveBall();
     if (score >= TARGET_SCORE) {
       gamePhase = 'won';
+      setPlayfieldVisible(false);
     } else if (ballsLeft === 0) {
       gamePhase = 'lost';
+      setPlayfieldVisible(false);
     }
     return;
   }
@@ -213,7 +221,10 @@ function checkBallProgress() {
 
   if (activeBall.y > GAME_HEIGHT + 35 || slowBallTime > 1800) {
     removeActiveBall();
-    if (ballsLeft === 0 && score < TARGET_SCORE) gamePhase = 'lost';
+    if (ballsLeft === 0 && score < TARGET_SCORE) {
+      gamePhase = 'lost';
+      setPlayfieldVisible(false);
+    }
     return;
   }
 
@@ -230,6 +241,7 @@ function removeActiveBall() {
 function startOrRestartGame() {
   if (gamePhase === 'start') {
     gamePhase = 'playing';
+    setPlayfieldVisible(true);
     return;
   }
 
