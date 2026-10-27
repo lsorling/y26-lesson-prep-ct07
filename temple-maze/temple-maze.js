@@ -237,7 +237,7 @@ function drawMessage(title, subtitle) {
   rectMode(CENTER);
   noStroke();
   fill(255,0,0, 180);
-  rect(width / 2, messageY, width - 80, 104, 10);
+  rect(width / 2, messageY, width-80, 104, 10);
   textAlign(CENTER, CENTER);
   fill('#ffe8a8');
   textSize(24);
