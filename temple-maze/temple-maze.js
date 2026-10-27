@@ -234,8 +234,6 @@ function drawGameMessage() {
 function drawMessage(title, subtitle) {
   const messageY = (MAZE_LAYOUT.length * TILE_SIZE) / 2;
   push();
-  fill(255, 150);
-  rect(0, 0, width, height);
   rectMode(CENTER);
   noStroke();
   fill(8, 10, 12, 210);
