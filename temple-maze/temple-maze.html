@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temple Maze</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    main {
+      width: min(100%, 720px);
+      text-align: center;
+    }
+
+    canvas {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 1rem auto;
+      border: 2px solid #00ccff;
+    }
+
+    .instructions {
+      line-height: 1.6;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.3/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5play/3.26.5/planck.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5play/3.26.5/p5play.js"></script>
+</head>
+<body>
+  <main>
+    <div class="game-links">
+      <a href="../index.html">Home</a>
+    </div>
+    <h1>Temple Maze</h1>
+    <p class="instructions">
+      Collect all 5 gems, then reach the green exit. Avoid the patrolling guard.
+      Move with the arrow keys or W/A/S/D. Press Enter or Space to start, and R to restart.
+    </p>
+    <script src="temple-maze.js"></script>
+  </main>
+</body>
+</html>
