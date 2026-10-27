@@ -246,7 +246,9 @@ function drawMessage(title, subtitle) {
   pop();
 }
 
-function keyPressed() {
+function keyPressed(event) {
+  if (event.repeat) return false;
+
   if (gameState === 'ready' && (keyCode === ENTER || key === ' ')) {
     gameState = 'playing';
   } else if (key === 'r' || key === 'R') {
