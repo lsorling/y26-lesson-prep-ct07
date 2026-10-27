@@ -220,6 +220,8 @@ function drawHud() {
 }
 
 function drawGameMessage() {
+  fill(0, 150);
+  
   if (gameState === 'ready') {
     drawMessage('TEMPLE MAZE', 'Press Enter or Space to begin');
   } else if (gameState === 'won' || gameState === 'lost') {
