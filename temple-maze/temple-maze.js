@@ -47,9 +47,9 @@ function setup() {
 }
 
 function createLevel() {
-  if (gems) gems.deleteAll();
-  if (walls) walls.deleteAll();
-  if (player) player.delete();
+  if (gems) gems.removeAll();
+  if (walls) walls.removeAll();
+  if (player) player.remove();
   if (guard) guard.remove();
 
   const wallTemplate = new Group();
