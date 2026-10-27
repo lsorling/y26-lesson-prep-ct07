@@ -169,7 +169,10 @@ function dropBall() {
   if (gamePhase !== 'playing' || activeBall || ballsLeft <= 0) return;
 
   ballsLeft -= 1;
-  activeBall = new Sprite(random(140, GAME_WIDTH - 140), 116, 22, 'dynamic');
+  activeBall = new Sprite();
+  activeBall.x = random(140, GAME_WIDTH - 140);
+  activeBall.y = 116;
+  activeBall.diameter = 22;
   activeBall.color = '#f04f45';
   activeBall.stroke = '#8a3d25';
   activeBall.strokeWeight = 2;
