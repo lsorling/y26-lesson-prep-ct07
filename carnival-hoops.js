@@ -3,6 +3,7 @@ const GAME_HEIGHT = 600;
 const BALL_LIMIT = 15;
 const TARGET_SCORE = 10;
 const DROP_BUTTON = { x: 340, y: 520, width: 180, height: 48 };
+const OVERLAY_BUTTON = { x: GAME_WIDTH / 2 - 90, y: 365, width: 180, height: 50 };
 
 let gamePhase = 'start';
 let score = 0;
@@ -86,14 +87,14 @@ function drawScene() {
       'Score 10 baskets before your 15 balls run out.',
       'Drag the gold paddle to move it. Hold Shift and drag to tilt.'
     );
-    drawButton(GAME_WIDTH / 2 - 90, 365, 180, 50, 'START GAME');
+    drawButton(OVERLAY_BUTTON.x, OVERLAY_BUTTON.y, OVERLAY_BUTTON.width, OVERLAY_BUTTON.height, 'START GAME');
   } else if (gamePhase === 'won' || gamePhase === 'lost') {
     drawOverlay(
       gamePhase === 'won' ? 'YOU WIN!' : 'GAME OVER',
       'Final score: ' + score + ' / ' + TARGET_SCORE,
       gamePhase === 'won' ? 'You are the carnival champion!' : 'Try a new angle and take another shot.'
     );
-    drawButton(GAME_WIDTH / 2 - 90, 365, 180, 50, 'PLAY AGAIN');
+    drawButton(OVERLAY_BUTTON.x, OVERLAY_BUTTON.y, OVERLAY_BUTTON.width, OVERLAY_BUTTON.height, 'PLAY AGAIN');
   }
 }
 
@@ -192,7 +193,11 @@ function checkBallProgress() {
   if (enteredBasket) {
     score += 1;
     removeActiveBall();
-    if (score >= TARGET_SCORE) gamePhase = 'won';
+    if (score >= TARGET_SCORE) {
+      gamePhase = 'won';
+    } else if (ballsLeft === 0) {
+      gamePhase = 'lost';
+    }
     return;
   }
 
@@ -238,7 +243,7 @@ function startOrRestartGame() {
 
 function mousePressed() {
   if (gamePhase === 'start' || gamePhase === 'won' || gamePhase === 'lost') {
-    if (mouseY >= 355 && mouseY <= 425) startOrRestartGame();
+    if (pointInButton(mouseX, mouseY, OVERLAY_BUTTON)) startOrRestartGame();
     return false;
   }
 
