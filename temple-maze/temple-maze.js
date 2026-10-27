@@ -42,6 +42,7 @@ function setup() {
   new Canvas(MAZE_LAYOUT[0].length * TILE_SIZE, MAZE_LAYOUT.length * TILE_SIZE + HUD_HEIGHT);
   world.gravity.y = 0;
   textFont('monospace');
+  registerMethod('post', drawGameMessage);
   createLevel();
 }
 
@@ -102,18 +103,7 @@ function draw() {
   drawExit();
   drawHud();
 
-  if (gameState === 'ready') {
-    drawMessage('TEMPLE MAZE', 'Press Enter or Space to begin');
-    return;
-  }
-
-  if (gameState !== 'playing') {
-    drawMessage(
-      gameState === 'won' ? 'TEMPLE ESCAPED!' : 'CAUGHT BY THE GUARD',
-      'Press R to play again'
-    );
-    return;
-  }
+  if (gameState !== 'playing') return;
 
   movePlayer();
   moveGuard();
@@ -227,6 +217,17 @@ function drawHud() {
   textSize(13);
   fill('#c5c6c2');
   text(notice || 'Find the gems. Watch the guard.', 18, hudTop + 55);
+}
+
+function drawGameMessage() {
+  if (gameState === 'ready') {
+    drawMessage('TEMPLE MAZE', 'Press Enter or Space to begin');
+  } else if (gameState === 'won' || gameState === 'lost') {
+    drawMessage(
+      gameState === 'won' ? 'TEMPLE ESCAPED!' : 'CAUGHT BY THE GUARD',
+      'Press R to play again'
+    );
+  }
 }
 
 function drawMessage(title, subtitle) {
