@@ -224,8 +224,6 @@ function drawGameMessage() {
   if (gameState === 'ready') {
     drawMessage('TEMPLE MAZE', 'Press Enter or Space to begin');
   } else if (gameState === 'won' || gameState === 'lost') {
-    fill(0, 150);
-    rect(0, 0, width, height);
     drawMessage(
       gameState === 'won' ? 'TEMPLE ESCAPED!' : 'CAUGHT BY THE GUARD',
       'Press R to play again'
@@ -236,7 +234,7 @@ function drawGameMessage() {
 function drawMessage(title, subtitle) {
   const messageY = (MAZE_LAYOUT.length * TILE_SIZE) / 2;
   push();
-  fill(0, 150);
+  fill(, 150);
   rect(0, 0, width, height);
   rectMode(CENTER);
   noStroke();
