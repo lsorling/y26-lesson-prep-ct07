@@ -220,11 +220,13 @@ function drawHud() {
 }
 
 function drawGameMessage() {
-  fill(0, 150);
-  rect(0, 0, width, height);
   if (gameState === 'ready') {
+    fill(0, 150);
+    rect(0, 0, width, height);
     drawMessage('TEMPLE MAZE', 'Press Enter or Space to begin');
   } else if (gameState === 'won' || gameState === 'lost') {
+    fill(0, 150);
+    rect(0, 0, width, height);
     drawMessage(
       gameState === 'won' ? 'TEMPLE ESCAPED!' : 'CAUGHT BY THE GUARD',
       'Press R to play again'
