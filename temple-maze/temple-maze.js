@@ -19,7 +19,7 @@ const GEM_TILES = [
   { column: 5, row: 1 },
   { column: 13, row: 1 },
   { column: 3, row: 5 },
-  { column: 13, row: 5 },
+  { column: 13, row: 6 },
   { column: 8, row: 3 }
 ];
 const EXIT_TILE = { column: 15, row: 11 };
