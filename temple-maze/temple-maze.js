@@ -102,7 +102,7 @@ function draw() {
   background('#171a1c');
   drawExit();
   drawHud();
-  drawGameMessage()
+  drawGameMessage();
 
   if (gameState !== 'playing') return;
 
