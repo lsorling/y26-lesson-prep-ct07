@@ -170,7 +170,7 @@ function moveGuard() {
 function collectGems() {
   for (const gem of gems) {
     if (player.overlaps(gem)) {
-      gem.remove(); // i fixed this. it was delete()
+      gem.remove(); // i fixed this. it was delete() before. but invalid
       collectedCount += 1;
       notice = `Gem collected: ${collectedCount}/${GEM_TILES.length}`;
     }
